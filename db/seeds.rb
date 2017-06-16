@@ -17,7 +17,7 @@ sections.each do |section|
       section: section,
       description: Faker::Lorem.paragraph(5),
       price: Faker::Number.between(50, 200) * 1000,
-      url: 'food/' + Faker::Number.between(1,12).to_s + '.jpeg'
+      url: 'food/' + Faker::Number.between(1,12).to_s + '.jpg'
     })
     food_item.save!
   end
