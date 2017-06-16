@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="filter-bar">
+    <div class="section-list">
+      <%= link_to "All", root_path, class: "#{'active' if !params[:section_id].present? }" %>
+      <% @sections.each do |section| %>
+        <%= link_to section.name, root_path(:section_id => section.id), class: "#{'active' if section.id.to_s == params[:section_id]}" %>
+      <% end %>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"><%= params[:order].present? ? @order_text[params[:order].to_sym] : 'Alphabetical' %></button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Alphabetical", root_path(:section_id => params[:section_id]), class: "dropdown-item" %>
+        <% @order_text.each do |key, value| %>
+          <%= link_to value, root_path(:section_id => params[:section_id], :order => key), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="menu-list row">
+    <%= render @food_items %>
+  </div>
+</div>
+<%= debug params %>

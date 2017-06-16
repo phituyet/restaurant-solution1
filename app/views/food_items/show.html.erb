@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <div class="single-food">
+        <div class="thumb">
+          <%= image_tag @food_item.url %>
+        </div>
+        <div class="single-food-header">
+          <h1>
+            <%= @food_item.name %>
+          </h1>
+          <h3>
+            <%= number_to_currency(@food_item.price, precision: 0, unit: 'đ') %>
+          </h3>
+        </div>
+        <div class="desc">
+          <%= @food_item.description %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= debug @food_item %>

@@ -1,0 +1,9 @@
+<div class="food-item">
+  <div class="food-item-thumb" style="background-image: url(<%= image_url(food_item.url) %>)">
+    <div class="overlay">
+      <a href="#" class="btn btn-primary">Order</a>
+    </div>
+  </div>
+  <p class="food-item-name"><%= link_to food_item.name, food_item_path(food_item) %></p>
+  <p class="food-item-price"><%= number_to_currency(food_item.price, precision: 0, unit: 'đ') %></p>
+</div>

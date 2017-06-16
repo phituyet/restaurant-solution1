@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slug: breakfast
+  name: Breakfast
+
+two:
+  slug: lunch
+  name: Lunch
+
+three:
+  slug: dinner
+  name: Dinner
+  
+four:
+  slug: drink
+  name: Drink

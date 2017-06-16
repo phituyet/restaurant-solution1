@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= @section.name %></h1>
+
+  <h2>List</h2>
+  <ul>
+    <% @section.food_items.each do |food| %>
+    <li>
+      <p><%= image_tag food.url.to_s %></p>
+      <p>Name: <%= food.name %></p>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
