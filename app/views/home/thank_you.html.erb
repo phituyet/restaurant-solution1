@@ -1,0 +1,20 @@
+<div class="container">
+  <% if notice.present? %>
+    <p id="notice" class="alert alert-success"><%= notice %></p>
+  <% end %>
+  
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>Thank you for your order</h1>
+      <p>Your order information:</p>
+      <p>Date: <%= @order.created_at.to_formatted_s(:long) %></p>
+      <p>Name: <%= @order.name %></p>
+      <p>Phone: <%= @order.phone %></p>
+      <p>Email: <%= @order.email %></p>
+      <% @order.food_items.each do |item, i| %>
+        <p>Food <%= i %>: <%= item.name %></p>
+      <% end %>
+      <p><%= link_to "Go to Menu", root_path %></p>
+    </div>
+  </div>
+</div>

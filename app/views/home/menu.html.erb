@@ -6,13 +6,26 @@
         <%= link_to section.name, root_path(:section_id => section.id), class: "#{'active' if section.id.to_s == params[:section_id]}" %>
       <% end %>
     </div>
-    <div class="dropdown">
-      <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"><%= params[:order].present? ? @order_text[params[:order].to_sym] : 'Alphabetical' %></button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to "Alphabetical", root_path(:section_id => params[:section_id]), class: "dropdown-item" %>
-        <% @order_text.each do |key, value| %>
-          <%= link_to value, root_path(:section_id => params[:section_id], :order => key), class: "dropdown-item" %>
-        <% end %>
+    <div class="right-bar">
+      <div class="dropdown">
+        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+          <%= params[:cuisine].present? ? @selected_cuisine.name : 'All Cuisine' %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "All Cuisine", root_path(:section_id => params[:section_id]), class: "dropdown-item" %>
+          <% @cuisines.each do |cuisine| %>
+            <%= link_to cuisine.name, root_path(:section_id => params[:section_id], :cuisine => cuisine.slug), class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"><%= params[:order].present? ? @order_text[params[:order].to_sym] : 'Alphabetical' %></button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Alphabetical", root_path(:section_id => params[:section_id]), class: "dropdown-item" %>
+          <% @order_text.each do |key, value| %>
+            <%= link_to value, root_path(:section_id => params[:section_id], :order => key), class: "dropdown-item" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -20,4 +33,3 @@
     <%= render @food_items %>
   </div>
 </div>
-<%= debug params %>

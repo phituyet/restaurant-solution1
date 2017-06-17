@@ -7,6 +7,31 @@ html, body{
   font-family: "Open Sans", sans-serif;
 }
 
+.navbar{
+  background-color: #333333;
+  color: #fff;
+  a{
+    color: #fff;
+  }
+}
+.btn{
+  border-radius: 2px;
+  border-radius: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+.btn-primary{
+  background-color: #666A86;
+  border-color: #666A86;
+  color: #fff;
+  &:hover{
+    background-color: darken(#666A86, 10);
+    border-color: darken(#666A86, 10);
+  }
+}
+
 .price{
   font-family: serif;
 }
@@ -28,10 +53,13 @@ html, body{
 .filter-bar{
   border-bottom: 1px solid #ededed;
   position: relative;
-  .dropdown{
+  .right-bar{
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+  .dropdown{
+    display: inline-block;
     .btn{
       padding-right: 0;
       text-decoration: none;
@@ -103,6 +131,7 @@ html, body{
     }
     .btn{
       opacity: 1;
+      color: #fff;
     }
     &:hover{
       .overlay{

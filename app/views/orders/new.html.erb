@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="text-center">Place New Order</h1>
+      <p>You have been order <%= @food_item.name %></p>
+      <%= render 'form', order: @order, food_item: @food_item %>
+    </div>
+  </div>
+</div>

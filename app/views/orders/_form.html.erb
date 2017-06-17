@@ -1,0 +1,34 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag :food_item_id, food_item.id %>
+
+
+  <div class="form-group">
+    <label>Your Name</label>
+    <%= text_field(:order, :name, class: 'form-control', :value => Faker::Name.name) %>
+  </div>
+  <div class="form-group">
+    <label>Your Phone</label>
+    <%= text_field(:order, :phone, class: 'form-control', :value => Faker::PhoneNumber.cell_phone) %>
+  </div>
+  <div class="form-group">
+    <label>Your Email</label>
+    <%= text_field(:order, :email, class: 'form-control', :value => Faker::Internet.email) %>
+  </div>
+
+  <div class="actions text-center">
+    <button type="submit" class="btn btn-primary" role="button">Create</button>
+    <%= link_to 'Cancel', root_path, class: "btn btn-link text-danger" %>
+  </div>
+<% end %>

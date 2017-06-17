@@ -31,14 +31,14 @@ URL: **heroku-app-url**
 * [x] User can sort menu items by “alphabetical”, “price low to high”, and “price high to low”.
 * [x] User should be able to search for a menu item and see results.
 * [x] Clicking on an item in the menu brings up its detail, where you see the description and a larger picture.
-* [ ] User can click “order” on a menu item to go to a “Create Order” page.
-* [ ] User is able to fill in their name, phone number, and address.
-* [ ] User is taken to a “Thank you for your order page” that lists the name of item, the total cost (delivery should cost 20,000 VND), the user’s name, the user’s address, and the time the order was created in human-readable format (for example, Tuesday, December 1, 15:25).
+* [x] User can click “order” on a menu item to go to a “Create Order” page.
+* [x] User is able to fill in their name, phone number, and address.
+* [x] User is taken to a “Thank you for your order page” that lists the name of item, the total cost (delivery should cost 20,000 VND), the user’s name, the user’s address, and the time the order was created in human-readable format (for example, Tuesday, December 1, 15:25).
 
 ### Optional:
 
-* [ ] User can also filter by type of Cuisine.
-* [ ] User can see how many times each menu item has been viewed, and sort items by “most viewed”.
+* [x] User can also filter by type of Cuisine.
+* [x] User can see how many times each menu item has been viewed, and sort items by “most viewed”.
 * [ ] User can leave a review (1-5 stars) for each dish, along with a text review.
 * [ ] User can see reviews and an average review score.
 * [ ] User can input "CODERSCHOOL" as a coupon code on the order page, which should give a 50% discount off of the order.
