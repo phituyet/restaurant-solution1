@@ -5,6 +5,9 @@ class HomeController < ApplicationController
     @cuisines = Cuisine.all
     @selected_cuisine = Cuisine.where(slug: params[:cuisine]).first
 
+    # @selected_params = params.select { |k, v| ['section_id', 'order', 's', 'cuisine'].include?(k) }
+    @selected_params = params.permit(:section_id, :order, :s, :cuisine)
+
     order_query = { 'price-asc': "price ASC", 'price-desc': "price DESC" }
 
     # query

@@ -6,7 +6,7 @@ Submitted by: Toan Nguyen
 
 Time spent: 16 hours spent in total
 
-URL: **heroku-app-url**
+URL: https://afternoon-sands-56480.herokuapp.com/
 
 ## User Stories
 
@@ -52,7 +52,7 @@ The following **additional** features are implemented:
 
 The following **known issues**:
 
-* List bugs or things that don't work yet
+* Validation & shows errors message
 
 ## Video Walkthrough
 

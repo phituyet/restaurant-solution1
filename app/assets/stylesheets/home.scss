@@ -56,9 +56,11 @@ html, body{
   border-bottom: 1px solid #ededed;
   position: relative;
   .right-bar{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    @media (min-width: 48em){
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
   }
   .dropdown{
     display: inline-block;
@@ -80,6 +82,10 @@ html, body{
 
 .section-list{
   margin-bottom: -1px;
+  display: flex;
+  @media (min-width: 767px){
+    
+  }
   a{
     text-decoration: none;
     color: #212121;
@@ -107,6 +113,7 @@ html, body{
 .food-item{
   padding: 15px;
   text-align: center;
+  width: 100%;
   @media (min-width: 48em){
     width: 33.33%;
   }
