@@ -1,8 +1,28 @@
-<div class="container">
+<div class="container container__first">
+  <h1 class="text-center">Place New Order</h1>
   <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h1 class="text-center">Place New Order</h1>
-      <p>You have been order <%= @food_item.name %></p>
+    <div class="col-md-6">
+      <h3 class="heading__form">Items</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th class="text-right">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render 'cart_item', food_item: @food_item %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td class="text-right"><span class="price"><%= number_to_currency(@food_item.price, precision: 0, unit: 'đ') %></span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h3 class="heading__form">Order Information</h3>
       <%= render 'form', order: @order, food_item: @food_item %>
     </div>
   </div>

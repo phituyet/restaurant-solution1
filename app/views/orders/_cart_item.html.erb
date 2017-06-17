@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to food_item.name, food_item_path(food_item.id) %></td>
+  <td class="text-right"><span class="price"><%= number_to_currency(food_item.price, precision: 0, unit: 'đ') %></span></td>
+</tr>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :orders
+  post 'create_review', to: 'food_items#create_review', as: 'create_review'
   get 'create_order/:id', to: 'home#create_order', as: 'create_order'
   get 'food_items/:id', to: 'food_items#show', as: 'food_item'
   get 'thank_you', to: 'home#thank_you'

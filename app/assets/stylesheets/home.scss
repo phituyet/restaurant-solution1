@@ -1,7 +1,7 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$serif: 'Cormorant', serif;
+$serif: 'Cormorant Infant', serif;
 
 html, body{
   font-family: "Open Sans", sans-serif;
@@ -13,6 +13,7 @@ html, body{
   a{
     color: #fff;
   }
+  margin-bottom: 30px;
 }
 .btn{
   border-radius: 2px;
@@ -33,7 +34,8 @@ html, body{
 }
 
 .price{
-  font-family: serif;
+  font-family: $serif;
+  // font-style: italic;
 }
 .contact{
   margin-top: 90px;
@@ -72,8 +74,11 @@ html, body{
   }
 }
 
+.container__first{
+  // margin-top: 10%;
+}
+
 .section-list{
-  margin-top: 10%;
   margin-bottom: -1px;
   a{
     text-decoration: none;
@@ -132,6 +137,15 @@ html, body{
     .btn{
       opacity: 1;
       color: #fff;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    .btn-default{
+      border-color: #fff;
+      &:hover{
+        background-color: #fff;
+        color: #212121;
+      }
     }
     &:hover{
       .overlay{
@@ -158,9 +172,79 @@ html, body{
 }
 
 /** single **/
-.single-food{
+.single-food-thumb{
   text-align: center;
   img{
     width: 100%;
   }
+}
+
+.single-food-info{
+
+}
+
+.table{
+  > thead > tr > th{
+    border-top: 0;
+    font-size: 0.9em;
+    text-transform: uppercase;
+  }
+  > tbody > tr > td{
+    .price{
+      font-size: 0.9em;
+    }
+  }
+
+  td.th{
+    font-weight: bold;
+    text-transform: uppercase;
+    // font-size: 0.8em;
+    color: #333;
+  }
+}
+
+.table-blank{
+  > tbody > tr > td{
+    border-top: 0;
+    font-size: 0.8em;
+  }
+}
+
+.heading__form{
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.review-stars{
+  position: relative;
+  line-height: 1em;
+  display: inline-block;
+  > div{
+    display: flex;
+  }
+  i{
+
+  }
+  .review-stars-bg{
+    color: #ededed;
+  } 
+  .review-stars-fg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #E8CC68;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.review-item{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  .review-author{
+
+  } 
 }

@@ -30,6 +30,18 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       result = false
+
+      # calculate price
+      food_item = FoodItem.find(params[:food_item_id])
+      @order.price = food_item.price
+      @order.price_total = food_item.price
+
+      # discount
+      if params[:coupon].present? && params[:coupon] == 'CODERSCHOOL'
+        @order.price_total *= 0.5
+      end
+
+      #save
       if params[:food_item_id].present?
         Order.transaction do
           @order.save!

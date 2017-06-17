@@ -3,6 +3,7 @@ class FoodItem < ApplicationRecord
   belongs_to :cuisine
   has_many :order_items, dependent: :destroy
   has_many :orders, through: :order_items
+  has_many :reviews
 
   scope :in_section, -> (section_id) { where("section_id = ?", section_id) if section_id.present?}
   scope :search, -> (s) { where("name ILIKE ?", "%#{s}%") if s.present?}

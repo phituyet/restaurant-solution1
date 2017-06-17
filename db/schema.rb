@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617061908) do
+ActiveRecord::Schema.define(version: 20170617162124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 20170617061908) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price"
+    t.decimal "price_total"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "point"
+    t.text "comment"
+    t.bigint "food_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["food_item_id"], name: "index_reviews_on_food_item_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -64,4 +76,5 @@ ActiveRecord::Schema.define(version: 20170617061908) do
   add_foreign_key "food_items", "sections"
   add_foreign_key "order_items", "food_items"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "reviews", "food_items"
 end
