@@ -25,6 +25,8 @@ class HomeController < ApplicationController
     if params[:id]
       if session[:cart]
         carts = session[:cart].split(',')
+      else 
+        carts = []
       end
       carts.push(params[:id])
       session[:cart] = carts.join(',')
