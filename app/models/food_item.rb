@@ -5,6 +5,7 @@ class FoodItem < ApplicationRecord
   has_many :orders, through: :order_items
   has_many :reviews
 
+  scope :in_array, -> (food_items) { where(id: food_items) }
   scope :in_section, -> (section_id) { where("section_id = ?", section_id) if section_id.present?}
   scope :search, -> (s) { where("name ILIKE ?", "%#{s}%") if s.present?}
   scope :cuisine, -> (slug) { joins(:cuisine).where('cuisines.slug = ?', slug) if slug.present? }

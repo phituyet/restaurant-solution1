@@ -11,7 +11,9 @@
     </div>
   <% end %>
 
-  <%= hidden_field_tag :food_item_id, food_item.id %>
+  <% food_items.each do |item| %>
+    <%= hidden_field_tag 'food_item_ids[]', item.id %>
+  <% end %>
 
   <div class="form-group">
     <label>Your Name</label>

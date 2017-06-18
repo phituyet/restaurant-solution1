@@ -32,8 +32,9 @@
             </div>
           <% end %>
         </div>
+        <p><%= @food_item.section.name %></p>
         <div class="desc"><p><%= @food_item.description %></p></div>
-        <p><em><%= @food_item.name %> has been viewed <%= @food_item.view %> times</em></p>
+        <p><em><%= @food_item.name %> has been viewed <%= pluralize(@food_item.view, 'time') %></em></p>
         <div class="mt-3">
           <%= link_to "Order", new_order_path(:food_item => @food_item.id), class: "btn btn-primary" %>
         </div>

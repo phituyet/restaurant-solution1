@@ -1,10 +1,11 @@
 <div class="food-item">
   <div class="food-item-thumb" style="background-image: url(<%= image_url(food_item.url) %>)">
     <div class="overlay">
-      <%= link_to "Order", new_order_path(:food_item => food_item.id), class: "btn btn-primary" %>
+      <%= link_to "Add to cart", add_to_cart_path(food_item.id), class: "btn btn-primary", :method => :post %>
       <%= link_to "View", food_item_path(food_item), class: "btn btn-default" %>
     </div>
   </div>
   <p class="food-item-name"><%= link_to food_item.name, food_item_path(food_item) %></p>
   <p class="food-item-price"><%= number_to_currency(food_item.price, precision: 0, unit: 'đ') %></p>
+  <p class="food-item-viewed"><small>Viewed <%= pluralize(food_item.view, 'time') %></small></p>
 </div>

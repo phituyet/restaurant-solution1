@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<% @food_items.each do |item| %>
+  <%= item.name %>
+<% end %>
+
+<%= debug @food_items %>

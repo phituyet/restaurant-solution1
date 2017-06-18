@@ -21,6 +21,21 @@ class HomeController < ApplicationController
   def contact
   end
 
+  def add_to_cart
+    if params[:id]
+      if session[:cart]
+        carts = session[:cart].split(',')
+      end
+      carts.push(params[:id])
+      session[:cart] = carts.join(',')
+
+      redirect_to root_path, notice: 'You have put something in the cart'
+    else
+      redirect_to root_path
+    end
+
+  end
+
   def create_order
     @food_item = FoodItem.find(params[:id])
   end

@@ -16,9 +16,15 @@
           </tr>
         </thead>
         <tbody>
-          <%= render 'orders/cart_item', food_item: @order.food_items.first %>
+          <% @order.food_items.each do |item| %>
+            <%= render 'orders/cart_item', food_item: item %>
+          <% end %>
         </tbody>
         <tfoot>
+          <tr>
+            <td>Delivery</td>
+            <td class="text-right"><span class="price"><%= number_to_currency(20000, precision: 0, unit: 'đ') %></span></td>
+          </tr>
           <tr>
             <td>Sum</td>
             <td class="text-right"><span class="price"><%= number_to_currency(@order.price, precision: 0, unit: 'đ') %></span></td>

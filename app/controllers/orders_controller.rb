@@ -15,8 +15,10 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    @food_item = FoodItem.find(params[:food_item])
-    @order.order_items.build
+    # @food_item = FoodItem.find(params[:food_item])
+
+    foods = session[:cart].split(',')
+    @food_items = FoodItem.in_array(foods)
   end
 
   # GET /orders/1/edit
@@ -27,14 +29,21 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @food_items = FoodItem.in_array(params[:food_item_ids].to_a)
+
+    # render :show
 
     respond_to do |format|
       result = false
 
       # calculate price
-      food_item = FoodItem.find(params[:food_item_id])
-      @order.price = food_item.price
-      @order.price_total = food_item.price
+      # food_item = FoodItem.find(params[:food_item_id])
+      @order.price = 0
+      @food_items.each do |item|
+        @order.price += item.price
+      end
+      @order.price += 20000 # delivery
+      @order.price_total = @order.price
 
       # discount
       if params[:coupon].present? && params[:coupon] == 'CODERSCHOOL'
@@ -42,19 +51,20 @@ class OrdersController < ApplicationController
       end
 
       #save
-      if params[:food_item_id].present?
+      if params[:food_item_ids].present?
         Order.transaction do
           @order.save!
-          @order.order_items.create({ food_item_id: params[:food_item_id] }).save!
+          @food_items.each do |item|
+            @order.order_items.create({ food_item_id: item.id }).save!
+          end
         end
+        session[:cart] = ''
         format.html { redirect_to thank_you_path(id: @order.id), notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
-
-      
 
       # if @order.save
       #   format.html { redirect_to @order, notice: 'Order was successfully created.' }

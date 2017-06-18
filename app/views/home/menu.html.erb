@@ -1,4 +1,7 @@
-<div class="container container__first">
+<div class="container">
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
   <div class="filter-bar">
     <div class="section-list">
       <%= link_to "All", root_path, class: "#{'active' if !params[:section_id].present? }" %>
@@ -34,3 +37,5 @@
     <%= render @food_items %>
   </div>
 </div>
+
+<%= debug session[:cart]  %>
