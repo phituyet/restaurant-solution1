@@ -4,7 +4,7 @@ Delicious is a Ruby on Rails restaurant website let users order foods.
 
 Submitted by: Toan Nguyen
 
-Time spent: 16 hours spent in total
+Time spent: 21 hours spent in total
 
 URL: https://afternoon-sands-56480.herokuapp.com/
 
